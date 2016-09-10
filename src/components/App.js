@@ -6,7 +6,7 @@ class App extends React.Component {
         return (
             <div className="container fluid">
                 <Header />
-                {this.props.children} //the routes go here
+                {this.props.children}
             </div>
         );
     }
