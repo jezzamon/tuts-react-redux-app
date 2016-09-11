@@ -1,6 +1,20 @@
 import React, { PropTypes } from 'react';
 
 class CoursesPage extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        
+        this.state = {
+            course: { title: ""}
+        };
+    }
+    
+    onTitleChange(e) {
+        const course = this.state.course;
+        course.title = e.target.value;
+        this.setState({course: course});
+    }
+    
     
     render() {
         return (
