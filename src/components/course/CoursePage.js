@@ -7,6 +7,10 @@ class CoursesPage extends React.Component {
         this.state = {
             course: { title: ""}
         };
+        
+        this.comments = 'bind your methods in the constructor';
+        this.onTitleChange = this.onTitleChange.bind(this);
+        this.onClickSave = this.onClickSave.bind(this);
     }
     
     onTitleChange(e) {
@@ -14,6 +18,11 @@ class CoursesPage extends React.Component {
         course.title = e.target.value;
         this.setState({course: course});
     }
+    
+    onClickSave() {
+        alert(`Saving ${this.state.course.title}`);
+    }
+    
     
     
     render() {
