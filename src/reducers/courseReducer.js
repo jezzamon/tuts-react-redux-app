@@ -1,8 +1,8 @@
+import * as types from '../actions/actionTypes';
+
 export default function courseReducer(state = [], action) {
     switch(action.type) {
-        case 'CREATE_COURSE':
-            //state.push(action.course); (don't do this, state should be immutable)
-            //return state;
+        case types.CREATE_COURSE:
             //this way copies over a new array with an extra value inside
             return [...state,
                 Object.assign({}, action.course)

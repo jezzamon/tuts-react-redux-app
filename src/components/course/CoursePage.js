@@ -3,19 +3,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 
+
 class CoursesPage extends React.Component {
-    constructor(props, context) {
+// In constructor
+    //1) set our state, and 
+    //2) call bind functions that need to be bound to 'this' context
+    constructor(props, context) { //1
         super(props, context);
         
         this.state = {
             course: { title: ""}
         };
         
-        this.comments = 'bind your methods in the constructor';
-        this.onTitleChange = this.onTitleChange.bind(this);
+        this.onTitleChange = this.onTitleChange.bind(this); //2
         this.onClickSave = this.onClickSave.bind(this);
     }
+
+/********************/
     
+    //child functions called by render()
     onTitleChange(e) {
         const course = this.state.course;
         course.title = e.target.value;
@@ -29,7 +35,9 @@ class CoursesPage extends React.Component {
     courseRow(course, index) {
         return <div key={index}>{course.title}</div>;
     }
+    /***********************************/
     
+    //Render components - ideally they just call components rather than inline here
     render() {
         return (
             <div>
@@ -48,14 +56,20 @@ class CoursesPage extends React.Component {
             </div>
         );
     }
-}
+    /******************************************************************************/
+} //END COMPONENT
 
+//setup validation from propTypes
 CoursesPage.propTypes = {
 //    dispatch: PropTypes.func.isRequired,  //no longer needed with mapDispatchToProps in connect
     courses: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 };
+/*******************************/
 
+//REDUX CONNECT AND RELATED FUNCTIONS
+
+//determines what state to map to props
 function mapStateToProps(state,ownProps) {
     return {
       courses: state.courses  
@@ -71,3 +85,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+/***************************************/
