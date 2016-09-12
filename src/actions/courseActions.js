@@ -2,10 +2,10 @@ import * as types from './actionTypes';
 import courseApi from '../api/mockCourseApi';
 
 export function loadCoursesSuccess(courses) {
-    return { type: types.LOAD_COURSES_SUCCESS, course: courses};
+    return { type: types.LOAD_COURSES_SUCCESS, courses: courses};
 }
 
-//thunk actions (tunk always returns a function that accepts a dispatch)
+//thunk actions (thunk always returns a function that accepts a dispatch)
 export function loadCourses() {
     return function(dispatch) {
         return courseApi.getAllCourses().then(courses => {
