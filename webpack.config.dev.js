@@ -12,7 +12,7 @@ export default {
   ],
   target: 'web',
   output: {
-    path: path.resolve(__dirname, 'dist'), // Note: Physical files are only output by the production build task `npm run build`.
+    path:  path.resolve(__dirname, 'dist'), //Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -35,3 +35,5 @@ export default {
   }
 };
 
+//if path.resolve in the entry property try regex
+//path.resolve(__dirname, 'src').replace(/^([A-Z]:)/, function(v) { return v.toLowerCase(); } ))
