@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
@@ -19,7 +19,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => 
                 label="Author"
                 value={course.authorId}
                 defaultOption="Select Author"
-                option={allAuthors}
+                options={allAuthors}
                 onChange={onChange} error={errors.authorId}/>
             
             <TextInput 
@@ -41,7 +41,7 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => 
                 disabled={loading}
                 value={loading ? 'Saving...' : 'Save'}
                 className="btn btn-primary"
-                onClick={onSave} />
+                onClick={onSave}/>
             
             
         </form>
@@ -49,15 +49,15 @@ const CourseForm = ({course, allAuthors, onSave, onChange, loading, errors}) => 
 };
 
 CourseForm.propTypes = {
-    course: PropTypes.object.isRequired,
-    allAuthors: PropTypes.array,
-    onSave: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
-    errors: PropTypes.object
+    course: React.PropTypes.object.isRequired,
+    allAuthors: React.PropTypes.array,
+    onSave: React.PropTypes.func.isRequired,
+    onChange: React.PropTypes.func.isRequired,
+    loading: React.PropTypes.bool,
+    errors: React.PropTypes.object
     
 };
 
 
 
-export default name;
+export default CourseForm;
