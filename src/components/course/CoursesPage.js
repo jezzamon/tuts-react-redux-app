@@ -32,7 +32,8 @@ class CoursesPage extends React.Component {
         );
     }
     /******************************************************************************/
-} //END COMPONENT
+} //END COMPONENT CLASS
+
 
 //setup validation from propTypes
 CoursesPage.propTypes = {
