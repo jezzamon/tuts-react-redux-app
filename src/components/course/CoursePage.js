@@ -9,11 +9,6 @@ class CoursesPage extends React.Component {
     constructor(props, context) { //1
         super(props, context);
     }
-    //child functions called by render()
-    
-    courseRow(course, index) {
-        return <div key={index}>{course.title}</div>;
-    }
     /***********************************/
     
     //Render components - ideally they just call components rather than inline here
@@ -41,6 +36,7 @@ CoursesPage.propTypes = {
 //REDUX CONNECT AND RELATED FUNCTIONS
 
 //determines what state to map to props
+// state.courses is taken from root reducer - reducers/index.js
 function mapStateToProps(state,ownProps) {
     return {
       courses: state.courses  
