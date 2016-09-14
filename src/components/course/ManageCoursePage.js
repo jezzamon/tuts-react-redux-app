@@ -17,6 +17,7 @@ class ManageCoursePage extends React.Component {
 	}
 
 	//when props change we need to change the state
+		//should only run when user selects a new course to view
 	componentWillReceiveProps(nextProps) {
 		if (this.props.course.id != nextProps.course.id) {
 			//necessary to populate form when existing course is loaded directly
@@ -41,7 +42,8 @@ class ManageCoursePage extends React.Component {
 	}
 
 	render() {
-		return ( < CourseForm allAuthors = {
+		return ( 
+			< CourseForm allAuthors = {
 				this.props.authors
 			}
 			onChange = {
@@ -82,6 +84,7 @@ function getCourseById(courses, id) {
 	}
 }
 function mapStateToProps(state, ownProps) {
+	//check if course id is given, otherwise it will be a blank page
 	const courseId = ownProps.params.id; // from the path '/course/:id'
 
 	let course = {
