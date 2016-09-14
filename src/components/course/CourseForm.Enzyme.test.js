@@ -18,7 +18,7 @@ describe('CourseForm via Enzyme', () => {
 	it('renders from h1', () => {
 		const wrapper = setup(false);
 		expect(wrapper.find('form').length).toBe(1);
-		expect(wrapper.find('h1').text()).toEqual('Manage Course');
+		expect(wrapper.find('h1').text()).toEqual('Manage course');
 		});
 
 	it('Save button is labelled "Save" when not saving', () => {
