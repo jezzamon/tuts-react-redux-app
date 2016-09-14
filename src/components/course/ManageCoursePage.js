@@ -5,9 +5,8 @@ import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 
 class ManageCoursePage extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    
+	constructor(props, context) {
+		super(props, context);
 		this.state = {
 			course: Object.assign({}, props.course),
 			errors: {}
@@ -17,34 +16,53 @@ class ManageCoursePage extends React.Component {
 		this.saveCourse = this.saveCourse.bind(this);
 	}
 
+	//when props change we need to change the state
+	componentWillReceiveProps(nextProps) {
+		if (this.props.course.id != nextProps.course.id) {
+			//necessary to populate form when existing course is loaded directly
+			this.setState({
+				course: Object.assign({}, nextProps.course)
+			});
+		}
+	}
 	updateCourseState(e) {
 		const field = e.target.name;
 		let course = this.state.course;
 		course[field] = e.target.value;
-		return this.setState({course: course});
+		return this.setState({
+			course: course
+		});
 	}
-	
+
 	saveCourse(e) {
 		e.preventDefault();
 		this.props.actions.saveCourse(this.state.course);
 		this.context.router.push('/courses');
 	}
-	
-    render() {
-        return (
-			<CourseForm
-				allAuthors={this.props.authors}
-				onChange={this.updateCourseState}
-				onSave={this.saveCourse}
-				course={this.state.course}
-				errors={this.state.errors}
+
+	render() {
+		return ( < CourseForm allAuthors = {
+				this.props.authors
+			}
+			onChange = {
+				this.updateCourseState
+			}
+			onSave = {
+				this.saveCourse
+			}
+			course = {
+				this.state.course
+			}
+			errors = {
+				this.state.errors
+			}
 			/>
 		);
-    }
+	}
 }
 
 ManageCoursePage.propTypes = {
-    course: PropTypes.object.isRequired,
+	course: PropTypes.object.isRequired,
 	authors: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired
 };
@@ -55,31 +73,37 @@ ManageCoursePage.contextTypes = {
 };
 
 function getCourseById(courses, id) {
-	debugger;
-	const course = courses.filter(course => courses.id == id);
+
+	const course = courses.filter(course => course.id == id);
 	if (course.length) {
 		return course[0]; //since filter return an array, grab first
 	} else {
-		return null
+		return null;
 	}
 }
-
 function mapStateToProps(state, ownProps) {
 	const courseId = ownProps.params.id; // from the path '/course/:id'
-	
-	let course = {id:'', watchHref:'', title:'', authorId:'', length:'', category:''};
-    
+
+	let course = {
+		id: '',
+		watchHref: '',
+		title: '',
+		authorId: '',
+		length: '',
+		category: ''
+	};
+
 	if (courseId && state.courses.length > 0) {
 		course = getCourseById(state.courses, courseId);
 	}
-	
+
 	const authorsFormattedForDropdown = state.authors.map(author => {
 		return {
 			value: author.id,
 			text: author.firstName + ' ' + author.lastName
 		};
 	});
-	
+
 	return {
 		course: course,
 		authors: authorsFormattedForDropdown
@@ -87,11 +111,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(courseActions, dispatch)
-    };
+	return {
+		actions: bindActionCreators(courseActions, dispatch)
+	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage
-);
-
+export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
