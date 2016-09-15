@@ -11,7 +11,10 @@ describe('Course Actions', () => {
 	describe('CreateCourseSuccess', () => {
 		it('Should create a CREATE_COURSE_SUCCESS action', () => {
 			//arrange
-			const course = {id: 'clean-code', title: 'Clean Code'};
+			const course = {
+				id: 'clean-code',
+				title: 'Clean Code'
+			};
 			const expectedAction = {
 				type: types.CREATE_COURSE_SUCCESS,
 				course: course
@@ -39,10 +42,11 @@ describe('Async actions', () => {
 	it('should create BEGIN_AJAX_CALL and LOAD_COURSES_SUCCESS when loading course', (done) => {
 		// Here's an example call to nock
 
-//		nock('http://example.com')
-//			.get('/courses')
-//			.reply(200, {body: { course: [{ id:1, firstName: 'Cory', lastName: 'House'}] }});
+		//		nock('http://example.com')
+		//			.get('/courses')
+		//			.reply(200, {body: { course: [{ id:1, firstName: 'Cory', lastName: 'House'}] }});
 
+	done();
 	});
 
 });
