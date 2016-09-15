@@ -11,7 +11,7 @@ describe('Author Selectors', () => {
 
 
 			const expected = [
-				{value: 'cory-dude', text: 'Cory House'},
+				{value: 'cory-dude', text: 'Cory Dude'},
 				{value: 'scott-allen', text: 'Scott Allen'}
 
 			];
@@ -24,3 +24,4 @@ describe('Author Selectors', () => {
 //if you need to test mapStateToProps consider extracting complicated pieces into separate
 //selectors, which is just a plain name for pure functions that are easy to test (or if you are using reselect which is expensive to run)
 
+//NOTE: redux-test-recorder
