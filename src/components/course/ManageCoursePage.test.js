@@ -4,6 +4,7 @@ import {mount, shallow} from 'enzyme';
 import {ManageCoursePage} from './ManageCoursePage'; //get raw component for testing
 
 describe('Manage course page', () => {
+	//props specified from MapDispatchToProps and MapStateToProps
 	const props = {
 		authors: [],
 		actions: { saveCourse: () => { return Promise.resolve(); }},
@@ -22,6 +23,8 @@ describe('Manage course page', () => {
 		const saveButton = wrapper.find('input').last();
 		expect(saveButton.prop('type')).toBe('submit');
 		saveButton.simulate('click');
+
+		expect(wrapper.state().errors.title).toBe('Title must be at least 5 characters');
 	});
 });
 
