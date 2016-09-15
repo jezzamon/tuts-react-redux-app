@@ -39,7 +39,6 @@ describe('Course Reducer', () => {
 		const newState = courseReducer(initialState, action);
 		const updatedCourse = newState.find(a => a.id == course.id);
 		const untouchedCourse = newState.find(a => a.id == 'A');
-
 		//assert
 		expect(updatedCourse.title).toEqual('New title');
 		expect(untouchedCourse.title).toEqual('A');
