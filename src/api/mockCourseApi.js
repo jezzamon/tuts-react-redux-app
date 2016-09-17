@@ -13,6 +13,14 @@ const courses = [
     category: "JavaScript"
   },
   {
+    id: "making-money-trees",
+    title: "Making money from trees",
+    watchHref: "https://www.youtube.com/watch?v=Pj3SZXqFSNw",
+    authorId: "roald-dahl",
+    length: "5:08",
+    category: "Arts and Crafts"
+  },
+  {
     id: "clean-code",
     title: "Clean Code: Writing Code for Humans",
     watchHref: "http://www.pluralsight.com/courses/writing-clean-code-humans",
