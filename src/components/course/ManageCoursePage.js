@@ -75,7 +75,7 @@ export class ManageCoursePage extends React.Component {
 
 	render() {
 		return ( 
-			< CourseForm
+			<CourseForm
 			allAuthors = {this.props.authors}
 			onChange = {this.updateCourseState}
 			onSave = {this.saveCourse}

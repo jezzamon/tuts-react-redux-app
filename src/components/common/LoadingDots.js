@@ -15,7 +15,7 @@ class LoadingDots extends React.Component {
 		}, this.props.interval);
 	}
 
-	componentWillUnMount() {
+	componentWillUnmount() {
 		clearInterval(this.interval);
 	}
 
