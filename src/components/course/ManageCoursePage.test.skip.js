@@ -1,7 +1,8 @@
 import React from 'react';
 import expect from 'expect';
 import {mount, shallow} from 'enzyme';
-import {ManageCoursePage} from './ManageCoursePage'; //get raw component for testing
+//import {ManageCoursePage} from './ManageCoursePage'; //get raw component for testing
+import ManageCoursePage from './ManageCoursePage'; 
 
 describe('Manage course page', () => {
 	//props specified from MapDispatchToProps and MapStateToProps
