@@ -32,7 +32,7 @@ class ManageCoursePage extends React.Component {
 	}
 	updateCourseState(e) {
 		const field = e.target.name;
-		let course = this.state.course;
+		let course = Object.assign({}, this.state.course);
 		course[field] = e.target.value;
 		return this.setState({
 			course: course
